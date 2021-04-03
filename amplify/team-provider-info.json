@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-siliconwedding-dev-94850-authRole",
+      "UnauthRoleArn": "arn:aws:iam::997494806725:role/amplify-siliconwedding-dev-94850-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::997494806725:role/amplify-siliconwedding-dev-94850-authRole",
+      "Region": "us-east-2",
+      "DeploymentBucketName": "amplify-siliconwedding-dev-94850-deployment",
+      "UnauthRoleName": "amplify-siliconwedding-dev-94850-unauthRole",
+      "StackName": "amplify-siliconwedding-dev-94850",
+      "StackId": "arn:aws:cloudformation:us-east-2:997494806725:stack/amplify-siliconwedding-dev-94850/b56bfbd0-948b-11eb-83b4-061298c01f58",
+      "AmplifyAppId": "d365ct4ioqkd5h"
+    }
+  }
+}

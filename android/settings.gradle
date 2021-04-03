@@ -1,0 +1,3 @@
+rootProject.name = 'Silicon_Wedding'
+
+include ':app'
