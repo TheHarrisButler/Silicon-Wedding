@@ -6,7 +6,9 @@ import styles from './styles.js';
 
 const FurnitureItem = (props) => {
 
-    const { name, image } = props.furniture; 
+    //const { name, image } = props.furniture; 
+    const name = props.furniture.name;
+    const image = props.furniture.image;
 
     return (
     <View style={styles.furnitureContainer}>
@@ -21,12 +23,20 @@ const FurnitureItem = (props) => {
           <Text style={styles.subtitle}>Check availibility in your area.</Text>
         </View>
 
-        <View style={styles.buttonContainer}>
+
+
+        {/*
+          TODO:
+          Invariant error being thrown
+          something to do with the buttons
+        */}
+        
+        {/* <View style={styles.buttonContainer}>
           <StyledButton 
             type="primary" 
             content={"View in AR"}
             onPress={() => {
-              console.warn('View AR was Pressed');
+              console.warn('AR was Pressed');
             }}
           />
 
@@ -37,7 +47,7 @@ const FurnitureItem = (props) => {
               console.warn('Learn More was Pressed');
             }}
           />
-        </View>
+        </View> */}
 
     </View>
     ); 
