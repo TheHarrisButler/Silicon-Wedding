@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View, TouchableHighlight, FlatList} from 'react-native';
+import {StyleSheet, View, TouchableHighlight, Text} from 'react-native';
 import {ViroARSceneNavigator} from 'react-viro';
 import FurnitureList from './components/FurnitureList';
 import Header from './components/Header';
@@ -18,7 +18,7 @@ var AR_NAVIGATOR_TYPE = "AR";
 
 var defaultNavigatorType = UNSET;
 
-export default class ViroSample extends Component {
+export default class ViroSample extends React.Component{
   constructor() {
     super();
 
@@ -27,7 +27,6 @@ export default class ViroSample extends Component {
       sharedProps : sharedProps
     }
     this._getExperienceSelector = this._getExperienceSelector.bind(this);
-    this._getARNavigator = this._getARNavigator.bind(this);
     this._getExperienceButtonOnPress = this._getExperienceButtonOnPress.bind(this);
     this._exitViro = this._exitViro.bind(this);
   }
@@ -42,20 +41,19 @@ export default class ViroSample extends Component {
     }
   }
 
-  // Presents the user with a choice of an AR or VR experience
   _getExperienceSelector() {
     return (
       <View style={styles.container}>
         <Header />
 
-        <FurnitureList />
-        
+        <FurnitureList start={this._getExperienceButtonOnPress}/>
       </View>
     );
   }
-
+  
   // Returns the ViroARSceneNavigator which will start the AR experience
   _getARNavigator() {
+    var InitialARScene = require('./js/HelloWorldSceneAR');
     return (
       <ViroARSceneNavigator {...this.state.sharedProps}
         initialScene={{scene: InitialARScene}} />
@@ -65,11 +63,9 @@ export default class ViroSample extends Component {
   // This function returns an anonymous/lambda function to be used
   // by the experience selector buttons
   _getExperienceButtonOnPress(navigatorType) {
-    return () => {
-      this.setState({
-        navigatorType : navigatorType
-      })
-    }
+    this.setState({
+      navigatorType : navigatorType
+    })
   }
 
   // This function "exits" Viro by setting the navigatorType to UNSET.
@@ -87,7 +83,18 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-
+  buttons : {
+    height: 80,
+    width: 150,
+    paddingTop:20,
+    paddingBottom:20,
+    marginTop: 10,
+    marginBottom: 10,
+    backgroundColor:'#68a0cf',
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: '#fff',
+  },
 });
 
 module.exports = ViroSample;
