@@ -23,15 +23,7 @@ const FurnitureItem = (props) => {
           <Text style={styles.subtitle}>Check availibility in your area.</Text>
         </View>
 
-
-
-        {/*
-          TODO:
-          Invariant error being thrown
-          something to do with the buttons
-        */}
-        
-        {/* <View style={styles.buttonContainer}>
+        <View style={styles.buttonContainer}>
           <StyledButton 
             type="primary" 
             content={"View in AR"}
@@ -47,8 +39,8 @@ const FurnitureItem = (props) => {
               console.warn('Learn More was Pressed');
             }}
           />
-        </View> */}
-
+        </View>
+        
     </View>
     ); 
 }; 

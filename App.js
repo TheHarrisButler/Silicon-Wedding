@@ -49,6 +49,7 @@ export default class ViroSample extends Component {
         <Header />
 
         <FurnitureList />
+        
       </View>
     );
   }
