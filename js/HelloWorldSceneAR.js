@@ -8,6 +8,13 @@ import {
   ViroARScene,
   ViroText,
   ViroConstants,
+  ViroBox,
+  ViroMaterials,
+  Viro3DObject,
+  ViroAmbientLight,
+  ViroSpotLight, 
+  ViroARPlaneSelector, 
+  ViroOrbitCamera
 } from 'react-viro';
 
 export default class HelloWorldSceneAR extends Component {
@@ -27,7 +34,30 @@ export default class HelloWorldSceneAR extends Component {
   render() {
     return (
       <ViroARScene onTrackingUpdated={this._onInitialized} >
-        <ViroText text={this.state.text} scale={[.5, .5, .5]} position={[0, 0, -1]} style={styles.helloWorldTextStyle} />
+        <ViroBox position={[0, -.5, -1]} scale={[.3, .3, .1]} materials={["grid"]} />
+        <ViroAmbientLight color={"#aaaaaa"} />
+        <ViroSpotLight innerAngle={5} outerAngle={90} direction={[0,-1,-.2]}
+          position={[0, 3, 1]} color="#ffffff" castsShadow={true} />
+        
+        <ViroOrbitCamera position={[0, 0, -0]} focalPoint={[0, 0, -1.15]} />
+        <ViroSpotLight position={[0, -0.25, 0]}
+                      color="#777777"
+                      direction={[0, 0, -1]}
+                      attenuationStartDistance={5}
+                      attenuationEndDistance={10}
+                      innerAngle={5}
+                      outerAngle={20}/>
+
+        <ViroAmbientLight color="#FF0000" />
+
+        <ViroARPlaneSelector>
+          <Viro3DObject
+            source={require('./res/woodChair/WoodChair.obj')}
+            resources={[require('./res/woodChair/WoodChair.mtl')]}
+            position={[0.0, 0.0, 1.0]}
+            scale={[.2, .2, .2]}
+            type="OBJ" />
+        </ViroARPlaneSelector>
       </ViroARScene>
     );
   }
@@ -50,6 +80,12 @@ var styles = StyleSheet.create({
     color: '#ffffff',
     textAlignVertical: 'center',
     textAlign: 'center',  
+  },
+});
+
+ViroMaterials.createMaterials({
+  grid: {
+    diffuseTexture: require('./res/grid_bg.jpg'),
   },
 });
 
