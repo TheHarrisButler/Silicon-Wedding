@@ -11,8 +11,8 @@ class FurnitureList extends React.Component{
         this.startExperience = this.startExperience.bind(this);
     }
 
-    startExperience(navtype) {
-        this.props.start(navtype)
+    startExperience(navtype, objectType) {
+        this.props.start(navtype, objectType)
     }
 
     render() {

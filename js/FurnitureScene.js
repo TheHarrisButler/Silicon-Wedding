@@ -23,7 +23,8 @@ export default class FurnitureScene extends Component {
     initialized: false, 
     isTracking: false,
     planeWidth: 0, 
-    planeLength: 0
+    planeLength: 0,
+    objectType: this.props.arSceneNavigator.viroAppProps.objectType
   }
 
   getUIText(uiText){
@@ -35,17 +36,49 @@ export default class FurnitureScene extends Component {
   }
 
   getARScene() {
-    return (
-      <Viro3DObject 
-        source={require('./res/chair_high/chair_high.obj')}
-        resources={[require('./res/chair_high/chair_high.mtl')]}
-        position={[0, -30, -50]}
-        scale={[0.3, 0.3, 0.3]}
-        type="OBJ"
-        dragType="FixedDistance"
-        onDrag={() => {}}
-      />
-    )
+    console.warn(this.state.objectType);
+
+    switch(this.state.objectType) {
+      case 0:
+        return(
+          <Viro3DObject 
+            source={require('./res/chair_high/chair_high.obj')}
+            resources={[require('./res/chair_high/chair_high.mtl')]}
+            position={[0, -30, -50]}
+            scale={[0.3, 0.3, 0.3]}
+            type="OBJ"
+            dragType="FixedDistance"
+            onDrag={() => {}}
+          />
+        )
+        break;
+      case 1:
+        return (
+          <Viro3DObject 
+            source={require('./res/kitchenChair/kitchenChair.obj')}
+            resources={[require('./res/kitchenChair/kitchenChair.obj')]}
+            position={[0, -30, -50]}
+            scale={[0.3, 0.3, 0.3]}
+            type="OBJ"
+            dragType="FixedDistance"
+            onDrag={() => {}}
+          />
+        )
+        break;
+      case 2:
+        return (
+          <Viro3DObject 
+            source={require('./res/chair_high/chair_high.obj')}
+            resources={[require('./res/chair_high/chair_high.mtl')]}
+            position={[0, -30, -50]}
+            scale={[0.3, 0.3, 0.3]}
+            type="OBJ"
+            dragType="FixedDistance"
+            onDrag={() => {}}
+          />
+        )
+        break;
+    }
   }
 
   render() {

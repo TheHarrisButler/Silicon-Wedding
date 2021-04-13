@@ -41,6 +41,7 @@ export default class ViroSample extends React.Component{
         <Header />
 
         <FurnitureList start={this._getExperienceButtonOnPress}/>
+
       </View>
     );
   }
@@ -69,9 +70,10 @@ export default class ViroSample extends React.Component{
     );
   }
 
-  _getExperienceButtonOnPress(navigatorType) {
+  _getExperienceButtonOnPress(navigatorType, objectType) {
     this.setState({
-      navigatorType : navigatorType 
+      navigatorType : navigatorType,
+      objectType: objectType 
     })
   }
 
