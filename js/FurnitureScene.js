@@ -42,9 +42,10 @@ export default class FurnitureScene extends Component {
       case 0:
         return(
           <Viro3DObject 
-            source={require('./res/chair_high/chair_high.obj')}
-            resources={[require('./res/chair_high/chair_high.mtl')]}
-            position={[0, -30, -50]}
+            source={require('./res/chairWithCushion/chairWithCushion.obj')}
+            resources={[require('./res/chairWithCushion/chairWithCushion.mtl'),
+            require('./res/chairWithCushion/cushion-red.jpg')]}
+            position={[0, -40, -70]}
             scale={[0.3, 0.3, 0.3]}
             type="OBJ"
             dragType="FixedDistance"
@@ -68,8 +69,8 @@ export default class FurnitureScene extends Component {
       case 2:
         return (
           <Viro3DObject 
-            source={require('./res/chair_high/chair_high.obj')}
-            resources={[require('./res/chair_high/chair_high.mtl')]}
+            source={require('./res/modern_chair/armChair2.obj')}
+            resources={[require('./res/modern_chair/armChair2.mtl')]}
             position={[0, -30, -50]}
             scale={[0.3, 0.3, 0.3]}
             type="OBJ"
